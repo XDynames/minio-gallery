@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  minio-gallery:
+    container_name: minio-gallery
+    build:
+      context: ..
+      dockerfile: docker/dockerfile
+    ports:
+      - 80:8000
+    environment:
+      - MINIO_ENDPOINT=""
+      - MINIO_ACCESS_KEY=""
+      - MINIO_SECRET_KEY=""
+    command: ["sh", "-c", "./entrypoint.sh"]
